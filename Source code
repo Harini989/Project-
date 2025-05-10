@@ -1,13 +1,14 @@
+
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import classification_report
 
-df = pd.read_csv('social_media.csv')
-df = df[['clean_text', 'category']].dropna()
-X = df['clean_text']
-y = df['category']
+df = pd.read_csv('sentimentdataset.csv')
+df = df[['Text', 'Sentiment']].dropna()
+X = df['Text']
+y = df['Sentiment']
 
 vectorizer = CountVectorizer()
 X_vec = vectorizer.fit_transform(X)
